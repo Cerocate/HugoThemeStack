@@ -4,3 +4,16 @@
     mermaid.initialize({ startOnLoad: true });
   </script>
 {{ end }}
+
+{{ if .Site.Params.typeIt }}
+<script src="https://unpkg.com/typeit@8.7.0/dist/index.umd.js"></script>
+<script>
+  let typeIt = new TypeIt(".site-description", {
+    waitUntilVisible:true,
+    lifeLike: true
+  });
+  let typeCharLen = typeIt.getQueue().getQueue().size-5;
+  typeIt.getElement().style.width=typeCharLen+"em";
+  typeIt.go();
+</script>
+{{ end }}
