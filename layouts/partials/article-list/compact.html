@@ -25,14 +25,14 @@
                         {{- $Width = $thumbnail.Width -}}
                         {{- $Height = $thumbnail.Height -}}
                     {{- end -}}
-                    
-                    <img src="{{ $Permalink }}" 
+
+                    <img src="{{ $Permalink }}"
                         width="{{ $Width }}"
-                        height="{{ $Height }}" 
+                        height="{{ $Height }}"
                         alt="{{ .Title }}"
-                        loading="lazy">
+                        loading="lazy" style="border-radius: 10px;">
                 {{ else }}
-                    <img src="{{ $image.permalink }}" loading="lazy" alt="Featured image of post {{ .Title }}" />
+                    <img src="{{ $image.permalink }}" loading="lazy" alt="Featured image of post {{ .Title }}" style="border-radius: 10px;"/>
                 {{ end }}
             </div>
         {{ end }}
