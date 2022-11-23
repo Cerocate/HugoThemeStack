@@ -4,6 +4,20 @@ toggleMenu:
 darkMode:
   other: 暗色模式
 
+
+list:
+  page:
+    one: "{{ .Count }} 个结果"
+    other: "{{ .Count }}个结果"
+
+  section:
+    other: 结果
+
+  subsection:
+    one: 小节
+    other: 小节
+
+
 article:
   back:
     other: 返回
@@ -36,7 +50,7 @@ widget:
 
   tagCloud:
     title:
-      other: 标签云
+      other: 标签
 
   categoriesCloud:
     title:
