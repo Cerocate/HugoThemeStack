@@ -1,11 +1,13 @@
 {{ define "main" }}
     <header>
         <h3 class="section-title">
-            {{ if eq .Parent (.GetPage "/") }}
-                {{ T "list.section" }}
-            {{ else }}
-                {{ .Parent.Title }}
-            {{ end }}
+          {{ if  eq .Parent.Title "Tags" }}
+            {{ T "widget.tagCloud.title" }}
+          {{ else if eq .Parent.Title "Categories"}}
+            {{ T "widget.categoriesCloud.title" }}
+          {{ else }}
+            {{ T "list.section"}}
+          {{ end }}
         </h3>
 
         <div class="section-card">
