@@ -25,7 +25,9 @@
 
     {{ $showReadingTime := .Params.readingTime | default (.Site.Params.article.readingTime) }}
     {{ $showDate := not .Date.IsZero }}
+    {{ $showWordCount := .Params.wordCount | default (.Site.Params.article.wordCount) }}
     {{ $showFooter := or $showDate $showReadingTime }}
+    {{ $showFooter = or $showFooter $showWordCount }}
     {{ if $showFooter }}
     <footer class="article-time">
         {{ if $showDate }}
@@ -45,17 +47,27 @@
                 </time>
             </div>
         {{ end }}
-    </footer>
+
+        {{ if $showWordCount }}
+        <div>
+            {{ partial "helper/icon" "clock" }}
+            <time class="article-time--count">
+                {{ T "article.wordCount" .Page.WordCount }}
+            </time>
+        </div>
     {{ end }}
 
-    {{ if .IsTranslated }}
-        <footer class="article-translations">
-            {{ partial "helper/icon" "language" }}
-            <div>
-                {{ range .Translations }}
-                    <a href="{{ .Permalink }}" class="link">{{ .Language.LanguageName }}</a>
-                {{ end }}
-            </div>
-        </footer>
+    </footer>
     {{ end }}
+    {{ if .IsTranslated }}
+    <footer class="article-translations">
+        {{ partial "helper/icon" "language" }}
+        <div>
+            {{ range .Translations }}
+                <a href="{{ .Permalink }}" class="link">{{ .Language.LanguageName }}</a>
+            {{ end }}
+        </div>
+    </footer>
+{{ end }}
+
 </div>
