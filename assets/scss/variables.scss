@@ -8,7 +8,7 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
     --main-top-padding: 35px;
 
     @include respond(xl) {
-        --main-top-padding: 50px;
+        --main-top-padding: 35px;
     }
 
     --body-background: #f5f5fa;
