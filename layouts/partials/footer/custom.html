@@ -1,19 +1,36 @@
 {{ if .Page.Store.Get "hasMermaid" }}
-  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-  <script>
-    mermaid.initialize({ startOnLoad: true });
-  </script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>
+  mermaid.initialize({ startOnLoad: true });
+</script>
 {{ end }}
 
-{{ if .Site.Params.typeIt }}
+{{ if or .Site.Params.typeIt .Page.Params.typeIt}}
 <script src="https://unpkg.com/typeit@8.7.0/dist/index.umd.js"></script>
 <script>
-  let typeIt = new TypeIt(".site-description", {
-    waitUntilVisible:true,
-    lifeLike: true
+  function typeIt(e) {
+    let typeIt = new TypeIt(e, {
+      waitUntilVisible: true,
+      lifeLike: true,
+      cursor: false
+    });
+    let typeCharLen = typeIt.getQueue().getQueue().size - 5;
+    typeIt.getElement().style.width = typeCharLen + "em";
+    typeIt.go();
+  };
+</script>
+{{ end }}
+
+{{ if .Page.Params.typeIt}}
+<script>
+  document.querySelectorAll(".typeIt").forEach(e => {
+    typeIt(e);
   });
-  let typeCharLen = typeIt.getQueue().getQueue().size-5;
-  typeIt.getElement().style.width=typeCharLen+"em";
-  typeIt.go();
+</script>
+{{ end }}
+
+{{ if .Site.Params.typeIt}}
+<script>
+  typeIt(document.querySelector(".site-description"));
 </script>
 {{ end }}
