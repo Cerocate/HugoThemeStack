@@ -1,10 +1,13 @@
+<!-- support Mermaid -->>
 {{ if .Page.Store.Get "hasMermaid" }}
 <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 <script>
   mermaid.initialize({ startOnLoad: true });
 </script>
 {{ end }}
+<!-- support Mermaid -->>
 
+<!-- support TypeIt -->>
 {{ if or .Site.Params.typeIt .Page.Params.typeIt}}
 <script src="https://unpkg.com/typeit@8.7.0/dist/index.umd.js"></script>
 <script>
@@ -34,3 +37,19 @@
   typeIt(document.querySelector(".site-description"));
 </script>
 {{ end }}
+<!-- support TypeIt -->>
+
+<!-- support dye -->>
+{{ if .Site.Params.unstainedTag }}
+<script>
+  const selectors = [".tagCloud-tags", ".tagCloud-tags", ".article-category", ".article-tags"];
+  selectors.forEach(s => {
+    document.querySelectorAll(s).forEach(e => {
+      for (const i of e.children) {
+        i.setAttribute("style", '');
+      }
+    })
+  });
+</script>
+{{ end }}
+<!-- support dye -->>
