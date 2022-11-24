@@ -16,7 +16,7 @@
     width: 100%;
     position: relative;
 
-    --sidebar-avatar-size: 100px;
+    --sidebar-avatar-size: 120px;
     --sidebar-element-separation: 20px;
     --emoji-size: 40px;
     --emoji-font-size: 20px;
@@ -25,11 +25,12 @@
         width: auto;
         padding-top: var(--main-top-padding);
         padding-bottom: var(--main-top-padding);
+        padding-left:var(--main-top-padding) ;
         max-height: 100vh;
     }
 
     @include respond(2xl) {
-        --sidebar-avatar-size: 120px;
+        --sidebar-avatar-size: 150px;
         --sidebar-element-separation: 25px;
         --emoji-size: 40px;
     }
