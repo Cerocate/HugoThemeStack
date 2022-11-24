@@ -1,7 +1,7 @@
 {{ if .Params.Tags }}
     <section class="article-tags">
         {{ range (.GetTerms "tags") }}
-            <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+            <a href="{{ .RelPermalink }}" {{ with .Page.Params.style }}style="background-color: {{ .background }}; color: {{ .color }};"{{ end }}>{{ .LinkTitle }}</a>
         {{ end }}
     </section>
 {{ end }}
