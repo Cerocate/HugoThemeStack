@@ -51,6 +51,9 @@ params:
   # When set to true, the site description will be dynamically typed.
   typeIt: true
 
+  # True to disable dye
+  unstainedTag: false
+
   dateFormat:
     published: Jan 02, 2006
     lastUpdated: 2006-01-02 15:04 MST
