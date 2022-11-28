@@ -1,0 +1,62 @@
+$typeMap: (
+  note: #68a0fe,
+  danger: #f76b6b,
+  warning: #fea632,
+  failure: #fa4267,
+  bug: #f3214b,
+  quote: #b0b0b0,
+  abstract: #32bffe,
+  info: #32c5dc,
+  tip: #f74e24,
+  success: #32d274,
+  question: #6dca34,
+  example: #d753f1,
+);
+.admonition {
+  overflow: hidden;
+  margin-top: var(--card-padding);
+  margin-bottom: var(--card-padding);
+  border: 1px solid var(--card-separator-color);
+  &-content {
+    font-size: var(--article-font-size);
+    font-family: var(--article-font-family);
+    padding: calc(15px + 1em) var(--card-padding);
+  }
+  &-title {
+    display: flex;
+    align-items: center;
+    padding-inline-start: calc(
+      var(--card-padding) - var(--heading-border-size)
+    );
+    font-size: 1.5em;
+    border-bottom: 1px solid var(--card-separator-color);
+    & svg {
+      width: 1em;
+      height: 1em;
+      margin-right: calc(var(--card-padding) - var(--heading-border-size));
+    }
+  }
+
+  @each $type, $color in $typeMap {
+    &-#{$type} {
+      border-inline-start: var(--blockquote-border-size) solid $color;
+      & .admonition-title {
+        color: $color;
+        background-color: lighten($color, 26%);
+        & svg {
+          fill: $color;
+        }
+      }
+    }
+  }
+}
+
+.article-content > .admonition {
+  margin-left: calc((var(--card-padding)) * -1);
+  margin-right: calc((var(--card-padding)) * -1);
+  width: calc(100% + var(--card-padding) * 2);
+  & > .admonition-content {
+    padding: calc(15px + 1em)
+      calc(var(--card-padding) - var(--blockquote-border-size)) !important;
+  }
+}
