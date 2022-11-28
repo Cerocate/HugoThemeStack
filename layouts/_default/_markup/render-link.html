@@ -1,3 +1,17 @@
-<a class="link" href="{{ .Destination | safeURL }}" {{ with .Title}} title="{{ . }}"
-    {{ end }}{{ if strings.HasPrefix .Destination "http" }} target="_blank" rel="noopener"
-    {{ end }}>{{ .Text | safeHTML }}</a>
+{{ $url := ( .Destination | safeURL )}}
+{{ $title := lower ( .Text | safeHTML )}}
+
+{{ if eq $title "youtubeplayer"}}
+<div class="video-wrapper">
+  <iframe loading="lazy" src="" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+{{ else if eq $title "bilibiliplayer" }}
+<div class="video-wrapper">
+  <iframe src="{{$url}}" scrolling="no" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+</div>
+
+{{ else }}
+<a class="link" href="{{ $url }}" {{ with .Title}} title="{{ . }}"
+  {{ end }}{{ if strings.HasPrefix .Destination "http" }} target="_blank" rel="noopener" {{ end }}>{{ $title }}</a>
+{{ end }}
