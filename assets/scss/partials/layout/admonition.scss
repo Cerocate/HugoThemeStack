@@ -13,6 +13,7 @@ $typeMap: (
   example: #d753f1,
 );
 .admonition {
+  overflow: hidden;
   margin-top: var(--card-padding);
   margin-bottom: var(--card-padding);
   border: 1px solid var(--card-separator-color);
