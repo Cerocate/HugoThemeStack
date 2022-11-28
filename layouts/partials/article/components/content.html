@@ -1,6 +1,8 @@
 <section class="article-content">
-    <!-- Refer to https://discourse.gohugo.io/t/responsive-tables-in-markdown/10639/5 -->
     {{ partial "article/components/markmap.html" . }}
+    {{ $pattern :=  `(?m)!!!([^\r]*)\s{4}(((    [^\r]*\r\s)|(\r\s))*)` }}
+    {{ $rep := "```admonition { class=\"${1}\" }\n${2}```\n\r\n" }}
+    {{ $content := (replaceRE $pattern $rep .RawContent) | .RenderString }}
     {{ $wrappedTable := printf "<div class=\"table-wrapper\">${1}</div>" }}
-    {{ .Content | replaceRE "(<table>(?:.|\n)+?</table>)" $wrappedTable | safeHTML }}
+    {{ $content | replaceRE "(<table>(?:.|\n)+?</table>)" $wrappedTable | safeHTML }}
 </section>
