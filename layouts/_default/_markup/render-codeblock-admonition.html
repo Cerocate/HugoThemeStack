@@ -1,0 +1,22 @@
+{{ $pattern :=  `(?m)!!!([^\r]*)\r\s\r\s(((    [^\r]*\r\s)|(\r\s))*)` }}
+{{ $rep := "```admonition { class=\"${1}\" }\n${2}```\n\r\n" }}
+{{ $content := (replaceRE `(?m)^    ` `` .Inner) }}
+{{ $content = (replaceRE $pattern $rep $content) | .Page.RenderString }}
+{{ $attr := replaceRE `  *` ` `  .Attributes.class }}
+{{ $attr = replaceRE `^ ` ``  $attr }}
+{{ $attr = replaceRE ` ` `,`  $attr 1 }}
+{{ $attr = split $attr `,` }}
+{{ $type := index $attr 0 }}
+{{ $title := index $attr 1 }}
+{{ $type = lower $type }}
+{{ $title = strings.FirstUpper $title}}
+{{ $typeList := split "abstract,bug,danger,example,failure,info,note,question,quote,success,tip,warning" ","}}
+{{ if eq (in $typeList $type) false }}
+    {{$type = "note"}}
+{{ end }}
+<div class="admonition admonition-{{ $type }}">
+  {{ if ne $title "" }}
+  <header class="admonition-title">{{ partial "helper/icon" (printf "admonitions/%s" $type) }}{{ $title }}</header>
+  {{ end }}
+  <section class="admonition-content">{{ $content }}</section>
+</div>

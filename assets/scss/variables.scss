@@ -150,12 +150,14 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
     --pre-text-color: #272822;
     --pre-background-color: #fafafa;
     @import "partials/highlight/light.scss";
+    @import "partials/layout/admonition.scss";
 }
 
 [data-scheme="dark"] {
     --pre-text-color: #f8f8f2;
     --pre-background-color: #272822;
     @import "partials/highlight/dark.scss";
+    @import "partials/layout/admonition-dark.scss";
 }
 
 :root {
