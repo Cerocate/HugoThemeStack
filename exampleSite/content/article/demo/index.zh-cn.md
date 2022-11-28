@@ -1,21 +1,19 @@
 ---
-title: 演示文档
-slug: Demo
-description: 描述
-date: 2022-11-21T21:52:18+08:00
-lastmod: 2022-11-21T22:52:18+08:00
-image: /images/banner.png
+title: "演示文档"
+slug: "Demo"
+description: "描述"
+date: "2022-11-21T21:52:18+08:00"
+image: "/images/banner.png"
 math: true
-comments: true
 categories:
   - Guide
   - Demo
 tags:
-  - 演示
-  - 指南
+  - Demo
+  - Guide
   - Markdown
-  - 语法
-  - 数学
+  - Syntax
+  - Math
 ---
 
 ## 文字样式
@@ -109,10 +107,19 @@ f();
 
 ## 数学[^katex]
 
+### 行内公式
+
 [^katex]: https://katex.org/docs/supported.html
 
+$\varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } }$
+
+### 公式块
+
 $$
- \varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } }
+\begin{aligned}
+a&=1+1 \\\\
+&=2
+\end{aligned}
 $$
 
 ## 引用
@@ -166,11 +173,13 @@ Stack[^1]
 
 ### 哔哩哔哩
 
-{{< bilibili av12345678 2 >}}
+[bilibiliplayer](https://player.bilibili.com/player.html?aid=12345678&cid=20335505&page=2)
 
-## 图表
+## 拓展
+
 ### Mermaid
-```mermaid {align='center'}
+
+```mermaid { align="center" }
 classDiagram
 Class01 <|-- AveryLongClass : Cool
 Class03 *-- Class04
@@ -186,3 +195,83 @@ Class01 : int chimp
 Class01 : int gorilla
 Class08 <--> C2: Cool label
 ```
+
+### Admonition
+
+
+!!! note 笔记
+
+    笔记
+
+!!! info 信息
+
+    信息
+
+!!! Success 成功
+
+    成功
+
+!!! warning 警告
+
+    警告
+
+!!! danger 危险
+
+    危险
+
+!!! failure 失败
+
+    失败
+
+!!! bug bug
+
+    Bug
+
+!!! abstract 摘要
+
+    摘要
+
+!!! tip 提示
+
+    提示
+
+!!! question 问题
+
+    问题
+
+!!! example 例子
+
+    例子
+
+!!! quote 引用
+
+    引用
+
+!!!
+
+    无标题
+
+
+!!! note 叠加
+
+    !!! note 叠加
+
+        ```mermaid { align="center" }
+        classDiagram
+        Class01 <|-- AveryLongClass : Cool
+        Class03 *-- Class04
+        Class05 o-- Class06
+        Class07 .. Class08
+        Class09 --> C2 : Where am i?
+        Class09 --* C3
+        Class09 --|> Class07
+        Class07 : equals()
+        Class07 : Object[] elementData
+        Class01 : size()
+        Class01 : int chimp
+        Class01 : int gorilla
+        Class08 <--> C2: Cool label
+        ```
+        
+
+
