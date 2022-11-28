@@ -1,5 +1,5 @@
 {{ $url := ( .Destination | safeURL )}}
-{{ $title := lower ( .Text | safeHTML )}}
+{{ $title := ( .Text | safeHTML )}}
 
 {{ if eq $title "youtubeplayer"}}
 <div class="video-wrapper">
