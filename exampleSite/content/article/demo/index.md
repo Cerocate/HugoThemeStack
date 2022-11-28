@@ -1,12 +1,10 @@
 ---
-title: Demo
-slug: Demo
-description: Description
-date: 2022-11-21T21:52:18+08:00
-lastmod: 2022-11-21T22:52:18+08:00
-image: /images/banner.png
+title: "Demo"
+slug: "Demo"
+description: "Description"
+date: "2022-11-21T21:52:18+08:00"
+image: "/images/banner.png"
 math: true
-comments: true
 categories:
   - Guide
   - Demo
@@ -109,10 +107,19 @@ use the `systemctl start docker` command to start the Docker
 
 ## Math[^katex]
 
+### Inline math
+
 [^katex]: https://katex.org/docs/supported.html
 
+$\varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } }$
+
+### Math block
+
 $$
- \varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } }
+\begin{aligned}
+a&=1+1 \\\\
+&=2
+\end{aligned}
 $$
 
 ## Quote
@@ -163,11 +170,13 @@ Stack[^1]
 
 ### Youtube
 
-{{< youtube VIDEO_ID >}}
+[youtubeplayer]()
 
-## Diagram
+## Extension
+
 ### Mermaid
-```mermaid {align='center'}
+
+```mermaid { align="center" }
 classDiagram
 Class01 <|-- AveryLongClass : Cool
 Class03 *-- Class04
@@ -183,3 +192,81 @@ Class01 : int chimp
 Class01 : int gorilla
 Class08 <--> C2: Cool label
 ```
+
+### Admonition
+
+
+!!! note note
+
+    Note
+
+!!! info info
+
+    Info
+
+!!! Success Success
+
+    Success
+
+!!! warning warning
+
+    Warning
+
+!!! danger danger
+
+    Danger
+
+!!! failure failure
+
+    Failure
+
+!!! bug bug
+
+    Bug
+
+!!! abstract abstract
+
+    Abstract
+
+!!! tip tip
+
+    Tip
+
+!!! question question
+
+    Question
+
+!!! example example
+
+    Example
+
+!!! quote quote
+
+    Quote
+
+!!!
+
+    Headless
+
+
+!!! note superimposed
+
+    !!! note superimposed
+
+        ```mermaid { align="center" }
+        classDiagram
+        Class01 <|-- AveryLongClass : Cool
+        Class03 *-- Class04
+        Class05 o-- Class06
+        Class07 .. Class08
+        Class09 --> C2 : Where am i?
+        Class09 --* C3
+        Class09 --|> Class07
+        Class07 : equals()
+        Class07 : Object[] elementData
+        Class01 : size()
+        Class01 : int chimp
+        Class01 : int gorilla
+        Class08 <--> C2: Cool label
+        ```
+        
