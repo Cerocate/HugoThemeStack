@@ -1,6 +1,6 @@
-{{ $pattern :=  `(?m)!!!([^\r]*)\r\s\r\s(((    [^\r]*\r\s)|(\r\s))*)` }}
-{{ $rep := "```admonition { class=\"${1}\" }\n${2}```\n\r\n" }}
-{{ $content := (replaceRE `(?m)^    ` `` .Inner) }}
+{{ $pattern :=  `(?m)^!!!((([^\r\n]*?$)\n\n)|(([^\r\n]*?)\r$\n\r\n))(((((    [^\r\n]*?$)|(    [^\r\n]*?\r$))\n(\r\n)?)|\n)*)` }}
+{{ $rep := "```admonition { class=\"${3}${5}\" }\n\n${6}```\n\n" }}
+{{ $content := (replaceRE `(?m)^    ` `` (printf "%s\n\n" .Inner)) }}
 {{ $content = (replaceRE $pattern $rep $content) | .Page.RenderString }}
 {{ $attr := replaceRE `  *` ` `  .Attributes.class }}
 {{ $attr = replaceRE `^ ` ``  $attr }}
