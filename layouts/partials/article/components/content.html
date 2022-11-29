@@ -1,7 +1,7 @@
 <section class="article-content">
     {{ partial "article/components/markmap.html" . }}
-    {{ $pattern :=  `(?m)!!!([^\r]*)\s{4}(((    [^\r]*\r\s)|(\r\s))*)` }}
-    {{ $rep := "```admonition { class=\"${1}\" }\n${2}```\n\r\n" }}
+    {{ $pattern :=  `(?m)^!!!((([^\r\n]*?$)\n\n)|(([^\r\n]*?)\r$\n\r\n))(((((    [^\r\n]*?$)|(    [^\r\n]*?\r$))\n(\r\n)?)|\n)*)` }}
+    {{ $rep := "```admonition { class=\"${3}${5}\" }\n${6}```\n" }}
     {{ $content := (replaceRE $pattern $rep .RawContent) | .RenderString }}
     {{ $wrappedTable := printf "<div class=\"table-wrapper\">${1}</div>" }}
     {{ $content | replaceRE "(<table>(?:.|\n)+?</table>)" $wrappedTable | safeHTML }}
