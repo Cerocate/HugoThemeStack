@@ -3,17 +3,20 @@ languageCode: en-us
 theme: HugoThemeStack
 paginate: 5
 title: title
+copyright: cerocate
 
 languages:
   en:
     languageName: English
     title: title
-    description: Example description
+    params:
+        description: Example description
     weight: 1
   zh-cn:
     languageName: 中文
     title: 标题
-    description: 演示说明
+    params:
+        description: 演示说明
     weight: 2
 
 enableEmoji: true
