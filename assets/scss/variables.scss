@@ -53,16 +53,12 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
 :root {
     --card-background: #fff;
     --card-background-selected: #eaeaea;
-
     --card-text-color-main: #000;
     --card-text-color-secondary: #747474;
     --card-text-color-tertiary: #767676;
     --card-separator-color: rgba(218, 218, 218, 0.5);
-
     --card-border-radius: 10px;
-
     --card-padding: 20px;
-
     @include respond(md) {
         --card-padding: 25px;
     }
